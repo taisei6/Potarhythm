@@ -25,6 +25,8 @@ const int flg0Pin = 10;         // the number of the pushflg pin
 const int ledPin = LED_BUILTIN;  // the number of the LED pin
 int flg0 = 0; 
 
+int count,count_pre,count2 = 0;
+
 void setup()
 {
  pinMode(ledPin, OUTPUT);
@@ -48,7 +50,9 @@ void loop(){
   Serial.print("___");
   Serial.println(mf_v);
   
-  if (flg0 == HIGH) {
+ 
+
+ if (flg0 == HIGH) {
     
     if(mf_v < sli_v){
       motor1.drive(250,10);
@@ -56,13 +60,13 @@ void loop(){
     }else{
      motor1.brake();
     }
-    digitalWrite(ledPin, HIGH);
+//    digitalWrite(ledPin, HIGH);
     
   } else {
     if(mf_v > sli_v){
      motor1.brake();
     }
-    digitalWrite(ledPin, LOW);
+//    digitalWrite(ledPin, LOW);
   }
-  
+    
 }
