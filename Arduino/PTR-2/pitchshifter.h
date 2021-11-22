@@ -12,9 +12,8 @@ class P_shifter {
   public:
   P_shifter(){};
   ~P_shifter(){};
+  
   void setup(){
-    pinMode(ledPin, OUTPUT);
-    pinMode(flg0Pin, INPUT);  
   }
   
   void on(int _note) {
@@ -28,7 +27,7 @@ class P_shifter {
     timestamp = millis();
   }
   
-  void drive(_note){
+  void drive(int _note){
     note = _note;
     if(note < 6){
       mf_v = analogRead(mf_pin1);

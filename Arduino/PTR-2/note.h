@@ -3,30 +3,29 @@ class Note {
   Note(){};
   ~Note(){};
   void setup(){
-    pinMode(7,OUTPUT);
-    pinMode(8,OUTPUT);    
+    pinMode(11,OUTPUT);
+    pinMode(12,OUTPUT);  
+    pinMode(13,OUTPUT);  
+    
   }
   void on(int _note) {
-    flg_note_on = true;
     note = _note;
-    digitalWrite(notePIN[note],HIGH);
+    digitalWrite(13,HIGH);
+    digitalWrite(11,HIGH);
   }
   void off(int _note) {
-    flg_note_on = false;
     note = _note;
-    digitalWrite(notePIN[note],LOW);
+    digitalWrite(11,LOW);
+    digitalWrite(13,LOW);
   }
   void update(){
-//    if ( (millis()-timestamp) >= ms && flg_note_on == false ) {
-//      drive_off(note);
-//    }
   }
   
   long ms;
 //  ms= xxxxミリ秒
   boolean flg_note_on;;
   long timestamp;
-  int notePIN[12] = {7,7,7,7,7,7,8,8,8,8,8,8};
+  int notePIN[12] = {11,11,11,11,11,11,12,12,12,12,12,12};
   int note;
 
 };
