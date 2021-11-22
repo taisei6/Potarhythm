@@ -54,7 +54,7 @@ class P_shifter {
     }
   }
   
-  long ms = 1000;//バルブが閉まった後の高度のキープ時間
+  long ms = 500;//バルブが閉まった後の高度のキープ時間
   boolean flg_note_on;;
   long timestamp;
   int note;
