@@ -29,7 +29,7 @@ class P_shifter {
   }
   
   void drive(_note){
-    note=_note;
+    note = _note;
     if(note < 6){
       mf_v = analogRead(mf_pin1);
       if(mf_v < p_val[note]){
