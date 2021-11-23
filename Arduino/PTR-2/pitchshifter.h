@@ -32,14 +32,14 @@ class P_shifter {
     if(note < 6){
       mf_v = analogRead(mf_pin1);
       if(mf_v < p_val[note]){
-      motor1.drive(250,10);
+      motor1.drive(250,7);
       motor1.brake();
       }
     }
     if(note >= 6){
       mf_v = analogRead(mf_pin2);
       if(mf_v < p_val[note]){
-      motor2.drive(250,10);
+      motor2.drive(250,7);
       motor2.brake();
       }
     }
@@ -67,5 +67,5 @@ class P_shifter {
   const int mf_pin1 = A0;
   const int mf_pin2 = A1;
   int mf_v = 0;
-  int p_val[12]= {50,100,150,200,250,300,350,400,450,500,550,600};//実施に計測した高度に設定する
+  int p_val[12]= {1000,100,500,750,250,300,350,400,450,500,550,600};//実施に計測した高度に設定する
 };
