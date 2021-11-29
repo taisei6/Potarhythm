@@ -11,24 +11,24 @@ int ms[5];
 
 void NoteOn_from_Master(byte channel, byte pitch, byte velocity){
   int var = pitch % 12;
-  int _velocity = int(velocity);
-  int velo = map(_velocity,0,127,30,120);
+
+  int opentime = 50;//実験用開放時間
   switch(var){
     case 0:
 //      ms[0] = analogRead(A0);
-      note[0].on(0, velocity);
+      note[0].on(0, opentime);
     break;
     case 1:
 //      ms[1] = analogRead(A1);
-      note[1].on(1, velocity);
+      note[1].on(1, opentime);
     break;
     case 2:
 //      ms[2] = analogRead(A2);
-      note[2].on(2, velocity);
+      note[2].on(2, opentime);
     break;
     case 3:
 //      ms[3] = analogRead(A3);
-      note[3].on(3, velocity);
+      note[3].on(3, opentime);
     break;
   }
 }
