@@ -12,7 +12,8 @@ int ms[5];
 void NoteOn_from_Master(byte channel, byte pitch, byte velocity){
   int var = pitch % 12;
 
-  int opentime = 50;//実験用開放時間
+  int opentime = 1000;//実験用開放時間
+  int houshutu = 1000;
   switch(var){
     case 0:
 //      ms[0] = analogRead(A0);
@@ -20,7 +21,7 @@ void NoteOn_from_Master(byte channel, byte pitch, byte velocity){
     break;
     case 1:
 //      ms[1] = analogRead(A1);
-      note[1].on(1, opentime);
+      note[1].on(1, houshutu);
     break;
     case 2:
 //      ms[2] = analogRead(A2);
