@@ -1,6 +1,7 @@
 #include <MIDI.h>
 #include "note.h"
 #include "pitchshifter.h"
+#include "tank.h"
 
 MIDI_CREATE_DEFAULT_INSTANCE();
 
@@ -8,6 +9,7 @@ MIDI_CREATE_DEFAULT_INSTANCE();
 #define Master_Slave_ch 4
 Note note;
 P_shifter p_shifter;
+Tank tank;
 
 
 void NoteOn_from_Master(byte channel, byte pitch, byte velocity){
@@ -33,13 +35,15 @@ void setup(){
 //  MIDI.begin(Master_Slave_ch);
   
   note.setup();
-  p_shifter.setup();  
-//  pinMode(13,OUTPUT);
+  p_shifter.setup();
+  tank.setup();
+//  pinMode(13,OUTPUT);//Lチカデバック用
 }
 
 void loop(){
   // リアルタイム性の確保のため、MIDI.readをできるだけ早く呼ぶように
   MIDI.read();
   p_shifter.update();
+  tank.update();
   
 }
