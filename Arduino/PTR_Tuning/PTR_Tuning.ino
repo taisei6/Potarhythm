@@ -12,7 +12,7 @@ int ms[5];
 void NoteOn_from_Master(byte channel, byte pitch, byte velocity){
   int var = pitch % 12;
 
-  int opentime = 1000;//実験用開放時間
+  int opentime = 80;//実験用開放時間
   int houshutu = 1000;
   switch(var){
     case 0:
