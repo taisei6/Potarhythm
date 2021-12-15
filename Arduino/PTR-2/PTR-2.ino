@@ -43,6 +43,7 @@ void setup(){
 void loop(){
   // リアルタイム性の確保のため、MIDI.readをできるだけ早く呼ぶように
   MIDI.read();
+  note.update();
   p_shifter.update();
   tank.update();
   
