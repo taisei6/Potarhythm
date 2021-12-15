@@ -10,9 +10,9 @@ class Tank {
   void update(){
     int sensorVal = digitalRead(2);
     if (sensorVal == HIGH) {
-      digitalWrite(13, LOW);
-    } else {
       digitalWrite(13, HIGH);
+    } else {
+      digitalWrite(13, LOW);
     }
   }
   
