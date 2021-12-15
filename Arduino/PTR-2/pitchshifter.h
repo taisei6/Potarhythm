@@ -35,11 +35,19 @@ class P_shifter {
       motor1.drive(250,7);
       motor1.brake();
       }
+      if(mf_v - p_val[note]>=20){
+      motor1.drive(-250,7);
+      motor1.brake();
+      }
     }
     if(note >= 6){
       mf_v = analogRead(mf_pin2);
       if(mf_v < p_val[note]){
       motor2.drive(250,7);
+      motor2.brake();
+      }
+      if(mf_v - p_val[note]>=20){
+      motor2.drive(-250,7);
       motor2.brake();
       }
     }
