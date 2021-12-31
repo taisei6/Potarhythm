@@ -19,17 +19,18 @@ class P_shifter {
   void on(int _note) {
     note = _note;
     flg_note_on = true;
-  }
-  
-  void off(int _note) {
-    note = _note;
-    flg_note_on = false;
     timestamp = millis();
   }
   
+//  void off(int _note) {
+//    note = _note;
+//    flg_note_on = false;
+//    timestamp = millis();
+//  }
+  
   void drive(int _note){
     note = _note;
-    if(note < 6){
+    if(note < 13){
       mf_v = analogRead(mf_pin1);
       p_height = map(mf_v, 0, 1023, 0, 99);
       
@@ -42,7 +43,7 @@ class P_shifter {
 //      motor1.brake();
 //      }
     }
-    if(note >= 6){
+    if(note >= 13){
       mf_v = analogRead(mf_pin2);
       p_height = map(mf_v, 0, 1023, 0, 99);
       
@@ -61,27 +62,32 @@ class P_shifter {
     if(flg_note_on == true){
       drive(note);
     }    
-    if ( (millis()-timestamp) <= ms && flg_note_on == false ) {
-      drive(note);
+    if ( (millis()-timestamp) >= opentime + ms && flg_note_on == true ) {
+      flg_note_on = false;
     }
+//    if ( (millis()-timestamp) <= ms && flg_note_on == false ) {
+//      drive(note);
+//    }
   }
   
-  long ms = 200;//バルブが閉まった後の高度のキープ時間
+  long ms = 500;//バルブが閉まった後の高度のキープ時間
   boolean flg_note_on;
   long timestamp;
   int note;
+  const int opentime = 75;
 
   const int offsetA = 1;
   const int offsetB = 1;
   Motor motor1 = Motor(AIN1, AIN2, PWMA, offsetA, STBY);
   Motor motor2 = Motor(BIN1, BIN2, PWMB, offsetB, STBY);
-  const int D_up = 250; //max255
-  const int D_down = -250;
+  const int D_up = 255; //max255
+  const int D_down = -255;
   const int D_pitch = 10;
   
   const int mf_pin1 = A0;
   const int mf_pin2 = A1;
   int mf_v = 0;
-  int p_val[12]= {5,15,25,35,45,55,5,15,25,35,45,55};//実施に計測した高度に設定する min5 Max95
+  int p_val[20]= {80,65,54,46,31,20,8,3, 74,61,38,25,13, 94,78,65,50,28,15,3};
+  //実際に計測した高度に設定する min5 Max95
   int p_height = 5;
 };

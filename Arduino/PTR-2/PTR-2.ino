@@ -24,7 +24,7 @@ void NoteOff_from_Master(byte channel, byte pitch, byte velocity){
   int P_var = pitch % 12;
 //  digitalWrite(13,LOW);
   note.off(P_var);
-  p_shifter.off(P_var);
+//  p_shifter.off(P_var);
 }
 
 void setup(){
