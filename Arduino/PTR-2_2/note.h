@@ -10,9 +10,16 @@ class Note {
   }
   void on(int _note) {
     note = _note;
-    digitalWrite(notePIN[note],HIGH);
-    timestamp = millis();
-    flg_note_on = true;
+//    int pedal = digitalRead(10);
+    
+//    if(pedal==HIGH){
+      digitalWrite(notePIN[note],HIGH);
+      timestamp = millis();
+      flg_note_on = true;
+//    }else{
+//      digitalWrite(notePIN[note],HIGH);
+//    }
+//    digitalWrite(13,HIGH);
   }
   void off(int _note) {
     note = _note;
@@ -28,10 +35,8 @@ class Note {
   
   boolean flg_note_on;;
   long timestamp;
-  int notePIN[21] = {12,12,12,12,12,12,12, 11,11,11,11,11,11,11,11,11,11,11,11,11,11};
-//  int notePIN[12] = {12,12,12,12,12,12,11,11,11,11,11,11};//12音を繰り返し使う用
-//12がA250mm管,11がB200mm管
-
+//  int notePIN[12] = {12,12,12,12,12,12,11,11,11,11,11,11};
+  int notePIN[12] = {12,12,12,12,12,12,12,12,12,12,12,12};
   int note;
   int opentime = 75;
 

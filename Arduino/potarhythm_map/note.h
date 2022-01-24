@@ -27,6 +27,6 @@ class Note {
   long ms;
   boolean flg_note_on;
   long timestamp;
-  int notePIN[5] = {7,8,9,10,11};
+  int notePIN[5] = {11,12,13,9,8};
   int note;
 };

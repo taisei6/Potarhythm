@@ -13,10 +13,7 @@ Tank tank;
 
 
 void NoteOn_from_Master(byte channel, byte pitch, byte velocity){
-  int P_var = pitch - 64 ;//E4~C6用,E4=Note No.64だから64引いて0にして配列を呼び出しやすくする
-//  int P_var = pitch % 12;//12音を繰り返し使う用
-
-
+  int P_var = pitch % 12;
 //  digitalWrite(13,HIGH);
   note.on(P_var);
   p_shifter.on(P_var);
@@ -24,9 +21,7 @@ void NoteOn_from_Master(byte channel, byte pitch, byte velocity){
 
 void NoteOff_from_Master(byte channel, byte pitch, byte velocity){
   //ノートオフ時にすること
-  int P_var = pitch ;//E4~C6用
-//  int P_var = pitch % 12;//12音を繰り返し使う用
-
+  int P_var = pitch % 12;
 //  digitalWrite(13,LOW);
   note.off(P_var);
 //  p_shifter.off(P_var);

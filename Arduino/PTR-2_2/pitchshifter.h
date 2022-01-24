@@ -30,7 +30,7 @@ class P_shifter {
   
   void drive(int _note){
     note = _note;
-    if(note < 7){
+    if(note < 6){
       mf_v = analogRead(mf_pin1);
       p_height = map(mf_v, 0, 1023, 0, 99);
       
@@ -38,23 +38,28 @@ class P_shifter {
       motor1.drive(D_up,D_pitch);
       motor1.brake();
       }
-//      モータが自重で下がらないとき用
 //      if(p_height - p_val[note]>=2){
 //      motor1.drive(D_down,D_pitch);
 //      motor1.brake();
 //      }
     }
-    if(note >= 7){
-      mf_v2 = analogRead(mf_pin2);
-      p_height = map(mf_v2, 0, 1023, 0, 99);
-      
-      if(p_height < p_val[note]){
-      motor2.drive(D_up,D_pitch);
-      motor2.brake();
+    if(note >= 6){
+//      mf_v2 = analogRead(mf_pin2);
+//      p_height = map(mf_v2, 0, 1023, 0, 99);
+mf_v = analogRead(mf_pin1);
+      p_height = map(mf_v, 0, 1023, 0, 99);
+
+if(p_height < p_val[note]){
+      motor1.drive(D_up,D_pitch);
+      motor1.brake();
       }
-//      モータが自重で下がらないとき用
+      
+//      if(p_height < p_val[note]){
+//      motor2.drive(D_up,D_pitch);
+//      motor2.brake();
+//      }
 //      if(p_height - p_val[note]>=2){
-//      motor2.drive(D_down,D_pitch);
+//      motor2.drive(D_up,D_pitch);
 //      motor2.brake();
 //      }
     }
@@ -90,8 +95,9 @@ class P_shifter {
   const int mf_pin2 = A1;
   int mf_v = 0;
   int mf_v2 = 0;
-  int p_val[21]= {94,85,65,50,27,15,3, 85,80,74,65,61,54,46,38,31,25,20,13,8,3};
-//  int p_val[12]= {80,65,54,46,31,20,94,78,65,50,28,15};//十二音繰り返し使う用
+//  int p_val[20]= {80,65,54,46,31,20,8,3, 74,61,38,25,13, 94,78,65,50,28,15,3};
+//  int p_val[12]= {80,65,54,46,31,20,94,78,65,50,28,15};
+  int p_val[12]= {8,3,74,65,61,54,46,38,31,25,20,13};
 
 //------------------------tuning-------------------------
   //  E4~A#4MIDI Note No.[64~70]7音
@@ -105,5 +111,6 @@ class P_shifter {
   //実際に計測した高度に設定する min5 Max95
   
 //------------------------tuning-------------------------
+  
   int p_height = 5;
 };
