@@ -30,7 +30,7 @@ class P_shifter {
   
   void drive(int _note){
     note = _note;
-    if(note < 7){
+    if(0<= note < 7){
       mf_v = analogRead(mf_pin1);
       p_height = map(mf_v, 0, 1023, 0, 99);
       
@@ -44,7 +44,7 @@ class P_shifter {
 //      motor1.brake();
 //      }
     }
-    if(note >= 7){
+    if(21>note >= 7){
       mf_v2 = analogRead(mf_pin2);
       p_height = map(mf_v2, 0, 1023, 0, 99);
       
@@ -76,7 +76,7 @@ class P_shifter {
   boolean flg_note_on;
   long timestamp;
   int note;
-  const int opentime = 75;
+  const int opentime = 70;
 
   const int offsetA = 1;
   const int offsetB = 1;

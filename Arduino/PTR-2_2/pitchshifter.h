@@ -44,21 +44,21 @@ class P_shifter {
 //      }
     }
     if(note >= 6){
-//      mf_v2 = analogRead(mf_pin2);
-//      p_height = map(mf_v2, 0, 1023, 0, 99);
-mf_v = analogRead(mf_pin1);
-      p_height = map(mf_v, 0, 1023, 0, 99);
-
-if(p_height < p_val[note]){
-      motor1.drive(D_up,D_pitch);
-      motor1.brake();
-      }
-      
-//      if(p_height < p_val[note]){
-//      motor2.drive(D_up,D_pitch);
-//      motor2.brake();
+      mf_v2 = analogRead(mf_pin2);
+      p_height2 = map(mf_v2, 0, 1023, 0, 99);
+//mf_v = analogRead(mf_pin1);
+//      p_height = map(mf_v, 0, 1023, 0, 99);
+//
+//if(p_height < p_val[note]){
+//      motor1.drive(D_up,D_pitch);
+//      motor1.brake();
 //      }
-//      if(p_height - p_val[note]>=2){
+      
+      if(p_height2 < p_val[note]){
+      motor2.drive(D_up,D_pitch);
+      motor2.brake();
+      }
+//      if(p_height2 - p_val[note]>=2){
 //      motor2.drive(D_up,D_pitch);
 //      motor2.brake();
 //      }
@@ -113,4 +113,5 @@ if(p_height < p_val[note]){
 //------------------------tuning-------------------------
   
   int p_height = 5;
+  int p_height2 = 5;
 };

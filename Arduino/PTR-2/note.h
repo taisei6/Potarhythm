@@ -10,14 +10,27 @@ class Note {
   }
   void on(int _note) {
     note = _note;
-    digitalWrite(notePIN[note],HIGH);
-    timestamp = millis();
-    flg_note_on = true;
+    if(0<= note < 7){
+      digitalWrite(12,HIGH);
+      timestamp = millis();
+      flg_note_on = true;
+    }
+    if(21 > note >= 7){
+      digitalWrite(11,HIGH);
+      timestamp = millis();
+      flg_note_on = true;
+    }
   }
   void off(int _note) {
     note = _note;
-    flg_note_on = false;
-    digitalWrite(notePIN[note],LOW);
+    if(0 <=note < 7){
+      flg_note_on = false;
+      digitalWrite(12,LOW);
+      }
+    if(21>note >= 7){
+      flg_note_on = false;
+      digitalWrite(11,LOW);
+    }
 //    digitalWrite(13,LOW);
   }
   void update(){
@@ -33,6 +46,6 @@ class Note {
 //12がA250mm管,11がB200mm管
 
   int note;
-  int opentime = 75;
+  int opentime = 70;
 
 };

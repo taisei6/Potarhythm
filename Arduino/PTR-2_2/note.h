@@ -35,8 +35,8 @@ class Note {
   
   boolean flg_note_on;;
   long timestamp;
-//  int notePIN[12] = {12,12,12,12,12,12,11,11,11,11,11,11};
-  int notePIN[12] = {12,12,12,12,12,12,12,12,12,12,12,12};
+  int notePIN[12] = {12,12,12,12,12,12,11,11,11,11,11,11};
+//  int notePIN[12] = {12,12,12,12,12,12,12,12,12,12,12,12};
   int note;
   int opentime = 75;
 
