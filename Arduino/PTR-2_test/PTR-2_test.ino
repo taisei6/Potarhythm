@@ -10,17 +10,28 @@ MIDI_CREATE_DEFAULT_INSTANCE();
 Note note;
 P_shifter p_shifter;
 Tank tank;
-
+int count=0;
 
 void NoteOn_from_Master(byte channel, byte pitch, byte velocity){
-  int pitch_ = pitch;
-  note.on(pitch_);
-  p_shifter.on(pitch_);
+  int channel_ = channel;
+//  if(channel_==1){
+//      count++;
+//    if(count==1){
+//      int pitch_ = pitch;
+//    note.on(pitch_);
+//    p_shifter.on(pitch_);
+//      }
+//    if(count==2){
+//      count=0;
+//      }
+//    }
+    note.on(pitch_);
+    p_shifter.on(pitch_);
 }
 
 void NoteOff_from_Master(byte channel, byte pitch, byte velocity){
-  int pitch_ = pitch;
-  note.off(pitch_);
+//  int pitch_ = pitch;
+//  note.off(pitch_);
 //  p_shifter.off(pitch_);
 }
 
