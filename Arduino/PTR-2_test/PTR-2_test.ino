@@ -25,6 +25,7 @@ void NoteOn_from_Master(byte channel, byte pitch, byte velocity){
 //      count=0;
 //      }
 //    }
+  int pitch_ = pitch;
     note.on(pitch_);
     p_shifter.on(pitch_);
 }

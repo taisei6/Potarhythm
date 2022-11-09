@@ -2,7 +2,7 @@
 #include <SparkFun_TB6612.h>
 
 
-#define AIN1 2
+#define AIN1 3
 #define BIN1 7
 #define AIN2 4
 #define BIN2 8
