@@ -1,3 +1,4 @@
+// pitch control仕様
 #include <MIDI.h>
 #include "note.h"
 #include "pitchshifter.h"
@@ -12,6 +13,7 @@ P_shifter p_shifter;
 Tank tank;
 int count=0;
 
+
 void NoteOn_from_Master(byte channel, byte pitch, byte velocity){
   int channel_ = channel;
 //  if(channel_==1){
@@ -25,15 +27,19 @@ void NoteOn_from_Master(byte channel, byte pitch, byte velocity){
 //      count=0;
 //      }
 //    }
+  digitalWrite(13, HIGH); 
   int pitch_ = pitch;
-    note.on(pitch_);
+  // ptr3ではValveとPitchでデバイス分けているのでnoteはコメントアウト
+    // note.on(pitch_);
     p_shifter.on(pitch_);
+    
 }
 
 void NoteOff_from_Master(byte channel, byte pitch, byte velocity){
 //  int pitch_ = pitch;
 //  note.off(pitch_);
 //  p_shifter.off(pitch_);
+  digitalWrite(13, LOW); 
 }
 
 void setup(){
@@ -43,17 +49,16 @@ void setup(){
   MIDI.begin(MIDI_CHANNEL_OMNI);
 //  MIDI.begin(Master_Slave_ch);
   
-  note.setup();
+  // note.setup();
   p_shifter.setup();
-  tank.setup();
-//  pinMode(13,OUTPUT);//Lチカデバック用
+  // tank.setup();
+ pinMode(13,OUTPUT);//Lチカデバック用
 }
 
 void loop(){
   // リアルタイム性の確保のため、MIDI.readをできるだけ早く呼ぶように
   MIDI.read();
-  note.update();
+  // note.update();
   p_shifter.update();
-  tank.update();
-  
+  // tank.update();
 }

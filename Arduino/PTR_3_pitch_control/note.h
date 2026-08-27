@@ -1,4 +1,5 @@
 class Note {
+  // pitch control仕様
   public:
   Note(){};
   ~Note(){};

@@ -39,6 +39,7 @@ class P_shifter {
           motor1.drive(D_up,D_pitch);
           motor1.brake();
           }
+         
         break;
       case 65:
         mf_v = analogRead(mf_pin1);
@@ -48,6 +49,7 @@ class P_shifter {
           motor1.drive(D_up,D_pitch);
           motor1.brake();
           }
+         
         break;
       case 66:
         mf_v = analogRead(mf_pin1);
@@ -57,6 +59,7 @@ class P_shifter {
           motor1.drive(D_up,D_pitch);
           motor1.brake();
           }
+         
         break;
       case 67:
         mf_v = analogRead(mf_pin1);
@@ -66,6 +69,7 @@ class P_shifter {
           motor1.drive(D_up,D_pitch);
           motor1.brake();
           }
+         
         break;
       case 68:
         mf_v = analogRead(mf_pin1);
@@ -75,6 +79,7 @@ class P_shifter {
           motor1.drive(D_up,D_pitch);
           motor1.brake();
           }
+         
         break;
       case 69:
         mf_v = analogRead(mf_pin1);
@@ -84,6 +89,7 @@ class P_shifter {
           motor1.drive(D_up,D_pitch);
           motor1.brake();
           }
+         
         break;
       case 70:
         mf_v = analogRead(mf_pin1);
@@ -93,6 +99,7 @@ class P_shifter {
           motor1.drive(D_up,D_pitch);
           motor1.brake();
           }
+         
         break;
         
       case 71:
@@ -103,6 +110,7 @@ class P_shifter {
           motor2.drive(D_up,D_pitch);
           motor2.brake();
           }
+         
         break;
       case 72:
         mf_v2 = analogRead(mf_pin2);
@@ -112,6 +120,7 @@ class P_shifter {
           motor2.drive(D_up,D_pitch);
           motor2.brake();
           }
+         
         break;
       case 73:
         mf_v2 = analogRead(mf_pin2);
@@ -121,6 +130,7 @@ class P_shifter {
           motor2.drive(D_up,D_pitch);
           motor2.brake();
           }
+         
         break;
       case 74:
         mf_v2 = analogRead(mf_pin2);
@@ -130,6 +140,7 @@ class P_shifter {
           motor2.drive(D_up,D_pitch);
           motor2.brake();
           }
+         
         break;
       case 75:
         mf_v2 = analogRead(mf_pin2);
@@ -139,6 +150,7 @@ class P_shifter {
           motor2.drive(D_up,D_pitch);
           motor2.brake();
           }
+         
         break;
       case 76:
         mf_v2 = analogRead(mf_pin2);
@@ -148,6 +160,7 @@ class P_shifter {
           motor2.drive(D_up,D_pitch);
           motor2.brake();
           }
+         
         break;
       case 77:
         mf_v2 = analogRead(mf_pin2);
@@ -157,6 +170,7 @@ class P_shifter {
           motor2.drive(D_up,D_pitch);
           motor2.brake();
           }
+         
         break;
       case 78:
         mf_v2 = analogRead(mf_pin2);
@@ -166,6 +180,7 @@ class P_shifter {
           motor2.drive(D_up,D_pitch);
           motor2.brake();
           }
+        
         break;
       case 79:
         mf_v2 = analogRead(mf_pin2);
@@ -175,6 +190,7 @@ class P_shifter {
           motor2.drive(D_up,D_pitch);
           motor2.brake();
           }
+        
         break;
       case 80:
         mf_v2 = analogRead(mf_pin2);
@@ -184,6 +200,7 @@ class P_shifter {
           motor2.drive(D_up,D_pitch);
           motor2.brake();
           }
+        
         break;
       case 81:
         mf_v2 = analogRead(mf_pin2);
@@ -193,6 +210,7 @@ class P_shifter {
           motor2.drive(D_up,D_pitch);
           motor2.brake();
           }
+        
         break;
       case 82:
         mf_v2 = analogRead(mf_pin2);
@@ -202,6 +220,7 @@ class P_shifter {
           motor2.drive(D_up,D_pitch);
           motor2.brake();
           }
+        
         break;
       case 83:
         mf_v2 = analogRead(mf_pin2);
@@ -211,6 +230,7 @@ class P_shifter {
           motor2.drive(D_up,D_pitch);
           motor2.brake();
           }
+        
         break;
       case 84:
         mf_v2 = analogRead(mf_pin2);
@@ -220,6 +240,7 @@ class P_shifter {
           motor2.drive(D_up,D_pitch);
           motor2.brake();
           }
+        
         break;
       }
   }

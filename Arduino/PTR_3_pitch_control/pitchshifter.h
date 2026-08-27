@@ -1,3 +1,4 @@
+// pitch control仕様
 #include <SparkFun_TB6612.h>
 
 #define AIN1 3
@@ -14,6 +15,20 @@ class P_shifter {
   ~P_shifter(){};
   
   void setup(){
+    mf_v = analogRead(mf_pin1);
+    p_height = map(mf_v, 0, 1023, 0, 99);
+    if(p_height < p_val[1]){
+      motor1.drive(D_up,D_pitch);
+      delay(500);
+      motor1.brake();  
+    }
+    mf_v2 = analogRead(mf_pin2);
+    p_height2 = map(mf_v2, 0, 1023, 0, 99);
+    if(p_height2 < p_val[2]){
+      motor2.drive(D_up,D_pitch);
+      delay(500);
+      motor2.brake();
+    }
   }
   
   void on(int _note) {

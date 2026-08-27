@@ -13,27 +13,26 @@ Tank tank;
 int count=0;
 
 void NoteOn_from_Master(byte channel, byte pitch, byte velocity){
-  int channel_ = channel;
-//  if(channel_==1){
-//      count++;
-//    if(count==1){
-//      int pitch_ = pitch;
-//    note.on(pitch_);
-//    p_shifter.on(pitch_);
-//      }
-//    if(count==2){
-//      count=0;
-//      }
-//    }
-  int pitch_ = pitch;
-    note.on(pitch_);
-    p_shifter.on(pitch_);
+  int _pitch = pitch;
+  int _velocity = map(velocity, 0, 127, 20, 147);
+  // if(63<_pitch<84){
+  //   p_shifter.on(_pitch);
+  // }
+
+  switch(pitch){
+
+    case 64 ... 84:
+//      ms[4] = analogRead(A4);
+      p_shifter.on(_pitch,_velocity);
+    break;
+  }
+  // note.on(_pitch);
 }
 
 void NoteOff_from_Master(byte channel, byte pitch, byte velocity){
-//  int pitch_ = pitch;
-//  note.off(pitch_);
-//  p_shifter.off(pitch_);
+//  int _pitch = pitch;
+//  note.off(_pitch);
+//  p_shifter.off(_pitch);
 }
 
 void setup(){
@@ -43,17 +42,17 @@ void setup(){
   MIDI.begin(MIDI_CHANNEL_OMNI);
 //  MIDI.begin(Master_Slave_ch);
   
-  note.setup();
+  // note.setup();
   p_shifter.setup();
-  tank.setup();
+  // tank.setup();
 //  pinMode(13,OUTPUT);//Lチカデバック用
 }
 
 void loop(){
   // リアルタイム性の確保のため、MIDI.readをできるだけ早く呼ぶように
   MIDI.read();
-  note.update();
+  // note.update();
   p_shifter.update();
-  tank.update();
+  // tank.update();
   
 }
