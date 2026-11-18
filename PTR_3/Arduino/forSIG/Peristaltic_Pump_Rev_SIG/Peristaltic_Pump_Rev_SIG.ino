@@ -6,12 +6,13 @@
 #define PIN_SPI_MISO 12
 #define PIN_SPI_SCK 13
 #define PIN_SPI_SS 10
-#define PIN_BUSY A0
+#define PIN_BUSY 9
 
-#define TARGET_SPEED 60000 // 目標速度
+#define TARGET_SPEED 50000 // 目標速度
 #define MIN_SPEED   100     // 開始時の最低速度
 #define ACCEL_STEP 100     // 1ステップあたりの加速量
 #define ACCEL_INTERVAL 50  // 加速の間隔(ms)
+#define MOTOR_DIRECTION 1 //回転方向
 
 void setup() {
   delay(1000);
@@ -32,12 +33,12 @@ void setup() {
   // --- 加速処理 ---
   // 最低速度から目標速度まで、少しずつ速度を上げていく
   for (long s = MIN_SPEED; s <= TARGET_SPEED; s += ACCEL_STEP) {
-    L6470_run(0, s);            // 現在の速度(s)で回転命令
+    L6470_run(MOTOR_DIRECTION, s);            // 現在の速度(s)で回転命令
     delay(ACCEL_INTERVAL);      // 次の加速まで少し待機
   }
   
   // 念のため、加速完了後に最終的な目標速度のコマンドを1回だけ送信
-  L6470_run(0, TARGET_SPEED);
+  L6470_run(MOTOR_DIRECTION, TARGET_SPEED);
 }
 
 void loop() {
