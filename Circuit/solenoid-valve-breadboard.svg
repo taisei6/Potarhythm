@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 850" role="img" aria-labelledby="title desc">
+  <title id="title">ArduinoとMOSFETでソレノイドバルブを駆動するブレッドボード配線図</title>
+  <desc id="desc">Arduino D9から220オーム抵抗を通してMOSFETのGateへ。Gateは10キロオームでGNDへ。ソレノイドは外部電源のプラスとMOSFETのDrainの間。SourceとArduino GNDと外部電源マイナスは共通GND。保護ダイオードはソレノイドと並列で帯のあるカソードをプラス側に接続する。</desc>
+  <defs>
+    <style>
+      text { font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Kaku Gothic ProN', 'Yu Gothic', sans-serif; fill: #183046; }
+      .title { font-size: 29px; font-weight: 700; }
+      .sub { font-size: 17px; fill: #506474; }
+      .head { font-size: 20px; font-weight: 700; }
+      .label { font-size: 17px; font-weight: 650; }
+      .small { font-size: 14px; }
+      .tiny { font-size: 12px; fill: #60717d; }
+      .wire { fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-width: 5; }
+      .red { stroke: #df4850; }
+      .blue { stroke: #2477be; }
+      .yellow { stroke: #d59d18; }
+      .black { stroke: #45525f; }
+      .component { fill: #fff9ea; stroke: #7a694c; stroke-width: 2; }
+    </style>
+    <g id="five-holes" fill="#7b8991">
+      <circle cx="0" cy="0" r="4"/><circle cx="30" cy="0" r="4"/><circle cx="60" cy="0" r="4"/><circle cx="90" cy="0" r="4"/><circle cx="120" cy="0" r="4"/>
+    </g>
+    <g id="rail-holes" fill="#7b8991">
+      <circle cx="0" cy="0" r="4"/><circle cx="50" cy="0" r="4"/><circle cx="100" cy="0" r="4"/><circle cx="150" cy="0" r="4"/><circle cx="200" cy="0" r="4"/><circle cx="250" cy="0" r="4"/><circle cx="300" cy="0" r="4"/><circle cx="350" cy="0" r="4"/><circle cx="400" cy="0" r="4"/><circle cx="450" cy="0" r="4"/><circle cx="500" cy="0" r="4"/><circle cx="550" cy="0" r="4"/>
+    </g>
+  </defs>
+
+  <rect width="1500" height="850" fill="#f5f8fa"/>
+  <text class="title" x="48" y="58">ソレノイドバルブをArduinoでON/OFF</text>
+  <text class="sub" x="48" y="91">配線例：Arduino UNO（5 V出力）＋ロジックレベルNチャネルMOSFET</text>
+
+  <!-- Arduino -->
+  <rect x="45" y="246" width="245" height="358" rx="18" fill="#e6f1f8" stroke="#527b96" stroke-width="3"/>
+  <rect x="76" y="278" width="105" height="66" rx="8" fill="#d0e3ef" stroke="#85a4b8"/>
+  <text class="head" x="75" y="383">Arduino UNO</text>
+  <text class="small" x="75" y="408">制御信号だけを出す</text>
+  <text class="label" x="194" y="331">D9</text>
+  <text class="label" x="179" y="512">GND</text>
+  <circle cx="290" cy="324" r="8" fill="#d59d18" stroke="#fff" stroke-width="2"/>
+  <circle cx="290" cy="506" r="8" fill="#45525f" stroke="#fff" stroke-width="2"/>
+
+  <!-- Breadboard -->
+  <rect x="337" y="166" width="630" height="506" rx="20" fill="#fff" stroke="#c3cbd0" stroke-width="3"/>
+  <text class="head" x="370" y="200">ブレッドボード</text>
+  <rect x="366" y="224" width="573" height="19" rx="9" fill="#fbe2e2"/>
+  <path d="M375 250 H930" stroke="#dc6569" stroke-width="3"/>
+  <use href="#rail-holes" x="390" y="233"/>
+  <text class="label" x="352" y="240" fill="#c83b44">＋</text>
+  <rect x="366" y="612" width="573" height="19" rx="9" fill="#e2ebf4"/>
+  <path d="M375 603 H930" stroke="#5c849e" stroke-width="3"/>
+  <use href="#rail-holes" x="390" y="622"/>
+  <text class="label" x="350" y="628">−</text>
+
+  <!-- Vertical row groups and center trench -->
+  <rect x="364" y="391" width="150" height="116" rx="8" fill="#fff6dc"/>
+  <rect x="602" y="391" width="150" height="116" rx="8" fill="#fff6dc"/>
+  <rect x="531" y="274" width="54" height="315" rx="5" fill="#eef1f3"/>
+  <text class="tiny" x="536" y="373">中央の溝</text>
+  <g class="tiny" text-anchor="middle">
+    <text x="390" y="278">A</text><text x="420" y="278">B</text><text x="450" y="278">C</text><text x="480" y="278">D</text><text x="510" y="278">E</text>
+    <text x="620" y="278">F</text><text x="650" y="278">G</text><text x="680" y="278">H</text><text x="710" y="278">I</text><text x="740" y="278">J</text>
+  </g>
+  <g class="tiny" text-anchor="end">
+    <text x="373" y="313">1</text><text x="373" y="341">2</text><text x="373" y="369">3</text><text x="373" y="397">4</text><text x="373" y="425">5</text><text x="373" y="453">6</text><text x="373" y="481">7</text><text x="373" y="509">8</text><text x="373" y="537">9</text><text x="373" y="565">10</text><text x="373" y="593">11</text>
+  </g>
+  <g>
+    <use href="#five-holes" x="390" y="308"/><use href="#five-holes" x="620" y="308"/>
+    <use href="#five-holes" x="390" y="336"/><use href="#five-holes" x="620" y="336"/>
+    <use href="#five-holes" x="390" y="364"/><use href="#five-holes" x="620" y="364"/>
+    <use href="#five-holes" x="390" y="392"/><use href="#five-holes" x="620" y="392"/>
+    <use href="#five-holes" x="390" y="420"/><use href="#five-holes" x="620" y="420"/>
+    <use href="#five-holes" x="390" y="448"/><use href="#five-holes" x="620" y="448"/>
+    <use href="#five-holes" x="390" y="476"/><use href="#five-holes" x="620" y="476"/>
+    <use href="#five-holes" x="390" y="504"/><use href="#five-holes" x="620" y="504"/>
+    <use href="#five-holes" x="390" y="532"/><use href="#five-holes" x="620" y="532"/>
+    <use href="#five-holes" x="390" y="560"/><use href="#five-holes" x="620" y="560"/>
+    <use href="#five-holes" x="390" y="588"/><use href="#five-holes" x="620" y="588"/>
+  </g>
+
+  <!-- Power supply and valve -->
+  <rect x="1192" y="135" width="266" height="139" rx="16" fill="#fff" stroke="#b8c5cf" stroke-width="3"/>
+  <text class="head" x="1218" y="170">外部電源</text>
+  <text class="small" x="1218" y="195">バルブの定格に合わせる</text>
+  <circle cx="1210" cy="222" r="8" fill="#df4850"/>
+  <circle cx="1440" cy="222" r="8" fill="#45525f"/>
+  <text class="label" x="1227" y="230">＋V</text>
+  <text class="label" x="1369" y="230">GND</text>
+
+  <rect x="1208" y="351" width="232" height="140" rx="17" fill="#edf5fb" stroke="#6a93ae" stroke-width="3"/>
+  <text class="head" x="1229" y="393">ソレノイド</text>
+  <text class="head" x="1229" y="422">バルブ</text>
+  <text class="small" x="1229" y="458">通電すると作動</text>
+  <circle cx="1208" cy="370" r="7" fill="#df4850"/>
+  <circle cx="1208" cy="466" r="7" fill="#2477be"/>
+
+  <!-- Wires: board rails, power and solenoid -->
+  <path class="wire red" d="M1210 222 H940 V233"/>
+  <path class="wire red" d="M890 233 H1047 V309"/>
+  <path class="wire red" d="M890 233 H1165 V370 H1208"/>
+  <path class="wire black" d="M1440 222 H1470 V696 H930 V622"/>
+  <path class="wire black" d="M290 506 H316 V696 H390 V622"/>
+  <path class="wire black" d="M740 476 H804 V622 H840"/>
+
+  <!-- Signal: D9, series resistor, trench jumper, pull-down -->
+  <path class="wire yellow" d="M290 324 H347 V336 H390"/>
+  <path class="wire yellow" d="M390 336 V354"/>
+  <rect class="component" x="376" y="354" width="28" height="46" rx="9"/>
+  <path d="M380 365 H400 M380 384 H400" stroke="#ab6b34" stroke-width="3"/>
+  <path class="wire yellow" d="M390 400 V420 H510 V413 H620 V420"/>
+  <circle cx="510" cy="420" r="6" fill="#d59d18"/>
+  <circle cx="620" cy="420" r="6" fill="#d59d18"/>
+  <text class="label" x="405" y="383">220 Ω</text>
+  <text class="small" x="525" y="401">溝をまたぐジャンパ</text>
+
+  <path class="wire black" d="M450 420 V444"/>
+  <rect class="component" x="436" y="444" width="28" height="49" rx="9"/>
+  <path d="M440 456 H460 M440 477 H460" stroke="#ab6b34" stroke-width="3"/>
+  <path class="wire black" d="M450 493 V588 H440 V622"/>
+  <text class="label" x="469" y="517">10 kΩ</text>
+
+  <!-- MOSFET on the right bank; pins touch three distinct rows -->
+  <path class="wire yellow" d="M620 420 H777"/>
+  <path class="wire blue" d="M620 448 H777"/>
+  <path class="wire black" d="M620 476 H777"/>
+  <rect x="777" y="393" width="139" height="109" rx="10" fill="#343e49" stroke="#17232c" stroke-width="3"/>
+  <text x="797" y="419" font-size="18" font-weight="700" fill="#fff">MOSFET</text>
+  <text x="798" y="442" font-size="15" fill="#fff">G → Gate</text>
+  <text x="798" y="464" font-size="15" fill="#fff">D → Drain</text>
+  <text x="798" y="486" font-size="15" fill="#fff">S → Source</text>
+  <circle cx="740" cy="448" r="6" fill="#2477be"/>
+  <circle cx="740" cy="476" r="6" fill="#45525f"/>
+
+  <!-- Drain to valve, with diode in parallel -->
+  <path class="wire blue" d="M740 448 H1012 V466 H1208"/>
+  <path class="wire blue" d="M1047 388 V466"/>
+  <path class="wire red" d="M1047 309 V328"/>
+  <rect x="1036" y="328" width="22" height="60" rx="9" fill="#39434b" stroke="#1c2429" stroke-width="2"/>
+  <rect x="1036" y="335" width="22" height="8" fill="#edf4f6"/>
+  <text class="label" x="1073" y="336">保護ダイオード</text>
+  <text class="small" x="1073" y="359">白い帯 → ＋V</text>
+  <text class="small" x="1073" y="382">反対側 → D</text>
+
+  <!-- Explanation strip -->
+  <rect x="43" y="730" width="1415" height="101" rx="12" fill="#e9eef1"/>
+  <text class="label" x="66" y="759">配線の読み方</text>
+  <text class="small" x="66" y="785">同じ番号の横5穴は内部でつながる。中央の溝を挟んだ左右は別なので、Gate行だけ黄色のジャンパで接続。</text>
+  <text class="small" x="66" y="811">MOSFETの実際の足順は型番のデータシートで確認。電源電圧・電流とダイオードの定格はバルブの仕様に合わせる。</text>
+</svg>
